@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Restaurants near you</title>
+  </head>
+  <body>
+    {% if restaurants_list %}
+    <ul>
+    {% for restaurant in restaurants_list %}
+        <ul>
+            <h2>{{ restaurant.name }}</h2>
+            <li>address -: {{ restaurant.address }}</li> 
+            <li>rating -: {{ restaurant.rating }}</li>
+            <li>distance -: {{ restaurant.distance }} km</li>
+            {% if restaurant.website %}
+                <li><a href ={{ restaurant.website }}>website</a></li>
+            {% endif %}
+            <li>average cost for two people -: Rs {{ restaurant.average_cost }}</li>
+            {% if restaurant.free_delivery == 1 %}
+              <b><li>Free Delivery option available</li></b>
+            {% else %} 
+              <li>Free Delivery option not available</li>
+            {% endif %}
+        </ul>
+        <hr>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No restaurants are available.</p>
+    {% endif %}
+  </body>
+</html>
