@@ -140,3 +140,5 @@ LOGGING = {
         'level': 'DEBUG',
     },
 }
+
+django_heroku.settings(locals(), logging=False)
